@@ -1,23 +1,41 @@
 package com.example.eloemocional.models;
 
 import com.example.eloemocional.models.enums.UserProfile;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import lombok.Data;
 
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Data
-public abstract class Person {
+@Entity
+public abstract class Person implements Serializable {
 
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     protected String name;
+
+    @Column(unique = true)
     protected String cpf;
+    @Column(unique = true)
     protected String email;
     protected String password;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "PROFILES")
     protected Set<Integer> profiles = new HashSet<>();
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dateCreation = LocalDate.now();
 
     public Person(Long id, String name, String cpf, String email, String password) {
