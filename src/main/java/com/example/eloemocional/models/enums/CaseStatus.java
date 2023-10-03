@@ -1,4 +1,4 @@
-package com.example.eloemocional.models;
+package com.example.eloemocional.models.enums;
 
 public enum CaseStatus {
     OPEN(0, "Open"),
