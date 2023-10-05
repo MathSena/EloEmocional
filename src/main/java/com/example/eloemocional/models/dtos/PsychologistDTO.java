@@ -1,5 +1,7 @@
 package com.example.eloemocional.models.dtos;
 
+import com.example.eloemocional.models.Psychologist;
+import com.example.eloemocional.models.enums.UserProfile;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +12,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -36,4 +39,18 @@ public class PsychologistDTO implements Serializable {
 
     protected Set<Integer> profiles = new HashSet<>();
     protected LocalDate dateCreation = LocalDate.now();
+
+    public PsychologistDTO(Psychologist objDto) {
+        this.id = objDto.getId();
+        this.name = objDto.getName();
+        this.cpf = objDto.getCpf();
+        this.email = objDto.getEmail();
+        this.password = objDto.getPassword();
+        this.profiles = objDto.getProfiles()
+                .stream()
+                .map(UserProfile::toEnumProfile)
+                .map(UserProfile::getCode)
+                .collect(Collectors.toSet());
+        this.dateCreation = objDto.getDateCreation();
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.eloemocional.controllers;
+package com.example.eloemocional.controllers.exceptions;
 
 import com.example.eloemocional.services.exceptions.DataIntegrityViolationException;
 import com.example.eloemocional.services.exceptions.ObjectNotFoundException;

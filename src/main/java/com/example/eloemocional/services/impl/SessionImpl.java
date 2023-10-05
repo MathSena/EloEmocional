@@ -44,22 +44,20 @@ public class SessionImpl implements SessionService {
         return repository.save(newSession(objDto));
     }
 
-    private Session newSession(SessionDTO obj) throws IllegalAccessException {
-        Psychologist psychologist = psychologistService.findById(obj.getPsychologist()
-                .getId());
-        Patiente patiente = patienteService.findById(obj.getPatiente()
-                .getId());
+    private Session newSession(SessionDTO objDto){
+        Psychologist psychologist = psychologistService.findById(objDto.getPsychologist());
+        Patiente patiente = patienteService.findById(objDto.getPatiente());
         Session session = new Session();
 
-        if (obj.getId() != null) {
-            session.setId(obj.getId());
+        if (objDto.getId() != null) {
+            session.setId(objDto.getId());
         }
 
-        session.setTitle(obj.getTitle());
-        session.setSessionCreationDate(obj.getSessionCreationDate());
-        session.setSessionDate(obj.getSessionDate());
-        session.setNotes(obj.getNotes());
-        session.setStatus(obj.getStatus());
+        session.setTitle(objDto.getTitle());
+        session.setSessionCreationDate(objDto.getSessionCreationDate());
+        session.setSessionDate(objDto.getSessionDate());
+        session.setNotes(objDto.getNotes());
+        session.setStatus(objDto.getStatus());
         session.setPsychologist(psychologist);
         session.setPatiente(patiente);
         return session;

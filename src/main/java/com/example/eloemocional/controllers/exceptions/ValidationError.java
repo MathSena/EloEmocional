@@ -1,4 +1,4 @@
-package com.example.eloemocional.controllers;
+package com.example.eloemocional.controllers.exceptions;
 
 import lombok.AllArgsConstructor;
 
