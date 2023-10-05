@@ -1,4 +1,4 @@
-package com.example.eloemocional.controllers.exceptions;
+package com.example.eloemocional.controllers;
 
 import com.example.eloemocional.models.Psychologist;
 import com.example.eloemocional.models.dtos.PsychologistDTO;

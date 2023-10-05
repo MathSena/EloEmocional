@@ -22,7 +22,6 @@ public class PatienteDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @NotNull(message = "ID cannot be null")
     private Integer id;
 
     @NotNull(message = "Name cannot be null")

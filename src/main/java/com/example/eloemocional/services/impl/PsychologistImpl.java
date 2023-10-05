@@ -73,7 +73,7 @@ public class PsychologistImpl implements PsychologistService {
     public void delete(Integer id) {
         Psychologist obj = findById(id);
 
-        if (obj.getSessions()
+        if (!obj.getSessions()
                 .isEmpty()) {
             throw new DataIntegrityViolationException("Psicólogo possui sessões e não pode ser deletado!");
         } else {

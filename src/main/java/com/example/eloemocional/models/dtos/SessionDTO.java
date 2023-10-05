@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -25,7 +24,6 @@ public class SessionDTO implements Serializable {
     @NotNull(message = "Title cannot be null")
     private String title;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate sessionCreationDate;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
