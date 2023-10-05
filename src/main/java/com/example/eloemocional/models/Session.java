@@ -24,7 +24,7 @@ public class Session implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String title;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate sessionCreationDate = LocalDate.now();

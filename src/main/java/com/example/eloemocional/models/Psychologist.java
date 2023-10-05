@@ -15,9 +15,14 @@ import java.util.List;
 @Entity
 public class Psychologist extends Person {
 
+
     @Serial
     private static final long serialVersionUID = 1L;
 
     @OneToMany(mappedBy = "psychologist")
     private List<Session> sessions = new ArrayList<>();
+
+    public Psychologist(Integer id, String name, String cpf, String email, String password) {
+        super(id, name, cpf, email, password);
+    }
 }

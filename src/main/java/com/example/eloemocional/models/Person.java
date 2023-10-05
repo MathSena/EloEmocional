@@ -22,7 +22,7 @@ public abstract class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    protected Integer id;
     protected String name;
 
     @Column(unique = true)
@@ -38,7 +38,7 @@ public abstract class Person implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dateCreation = LocalDate.now();
 
-    public Person(Long id, String name, String cpf, String email, String password) {
+    public Person(Integer id, String name, String cpf, String email, String password) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
@@ -47,11 +47,11 @@ public abstract class Person implements Serializable {
         addUserProfile(UserProfile.PATIENT);
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

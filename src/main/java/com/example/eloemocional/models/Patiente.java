@@ -20,4 +20,9 @@ public class Patiente extends Person {
 
     @OneToMany(mappedBy = "patiente")
     private List<Session> sessions = new ArrayList<>();
+
+    public Patiente(Integer id, String name, String cpf, String email, String password) {
+        super(id, name, cpf, email, password);
+
+    }
 }
