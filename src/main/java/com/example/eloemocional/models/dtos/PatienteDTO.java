@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -30,5 +32,7 @@ public class PatienteDTO implements Serializable {
     @NotNull(message = "Password cannot be null")
     private String password;
 
-    private List<SessionDTO> sessions;
+    protected Set<Integer> profiles = new HashSet<>();
+    protected LocalDate dateCreation = LocalDate.now();
+
 }

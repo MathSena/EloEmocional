@@ -18,7 +18,6 @@ public class DBService {
 
     @Autowired
     private PsychologistRepository psychologistRepository;
-
     @Autowired
     private PatienteRepository patienteRepository;
 
